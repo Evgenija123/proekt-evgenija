@@ -28,9 +28,10 @@ adapter= QuizListAdapter(quizModelList)
     }
 
     private fun getDataFromFirebase(){
-        quizModelList.add(QuizModel( "1","Programming 1","Basic programming 1","10"))
-        quizModelList.add(QuizModel( "2","Programming 2","Basic programming 2","20"))
-        quizModelList.add(QuizModel( "3","Programming 3","Basic programming 3","15"))
+        quizModelList.add(QuizModel( "1","Sport ","sport 1","10"))
+        quizModelList.add(QuizModel( "2","Sciene 2","science 2","20"))
+        quizModelList.add(QuizModel( "3","Movies","movies 3","15"))
+
         setupRecyclerView()
 
     }
