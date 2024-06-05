@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        QuizModel= mutableListOf()
+        quizModelList= mutableListOf()
         getDataFromFirebase()
     }
     private fun setupRecyclerView(){
