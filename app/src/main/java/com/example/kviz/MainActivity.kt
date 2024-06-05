@@ -2,11 +2,13 @@ package com.example.kviz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kviz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var quizModelList: MutableList<QuizModel>
+    lateinit var adapter: QuizListAdapter
 
 
 
@@ -20,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         getDataFromFirebase()
     }
     private fun setupRecyclerView(){
-
+adapter= QuizListAdapter(quizModelList)
+        binding.recyclerView.layoutManager=LinearLayoutManager(this)
+        binding.recyclerView.adapter=adapter
     }
 
     private fun getDataFromFirebase(){
