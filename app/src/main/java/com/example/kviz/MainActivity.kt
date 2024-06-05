@@ -28,7 +28,13 @@ adapter= QuizListAdapter(quizModelList)
     }
 
     private fun getDataFromFirebase(){
-        quizModelList.add(QuizModel( "1","Sport ","sport 1","10"))
+        val listQuestionModel= mutableListOf<QuestionModel>()
+        listQuestionModel.add(QuestionModel("What is android?", mutableListOf("Language","OS","Product","None"),"OS"))
+        listQuestionModel.add(QuestionModel("Prasanje 2", mutableListOf("Language","OS","Product","None"),"OS"))
+        listQuestionModel.add(QuestionModel("Prasanje 3", mutableListOf("Language","OS","Product","None"),"OS"))
+
+
+        quizModelList.add(QuizModel( "1","Sport ","sport 1","10",listQuestionModel))
         quizModelList.add(QuizModel( "2","Sciene 2","science 2","20"))
         quizModelList.add(QuizModel( "3","Movies","movies 3","15"))
 
