@@ -18,6 +18,7 @@ binding.apply {
         val intent = Intent(root.context, QuizActivity::class.java)
 
         QuizActivity.questionModelList =model.questionList
+        QuizActivity.time=model.time
 
 
         root.context.startActivity(intent)
