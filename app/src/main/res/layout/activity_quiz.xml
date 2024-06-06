@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".QuizActivity"
-    android:background="#FFFFFF">
+    android:background="@color/sc">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
         tools:progress="40"
+        android:background="@color/sc"
 
         />
 
@@ -60,13 +61,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginVertical="8dp"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        app:cardBackgroundColor="@color/sc">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@color/sc">
 
             <TextView
                 android:id="@+id/question_textview"
@@ -77,7 +80,7 @@
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="#CBE8DD"
+                android:backgroundTint="#EFE9E0"
                 android:textColor="@color/blue"
                 android:gravity="center"
                 android:layout_marginVertical="8dp" />
@@ -87,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:backgroundTint="#CBE8DD"
+                android:backgroundTint="#EFE9E0"
                 android:text="Answer A"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -99,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:backgroundTint="#CBE8DD"
+                android:backgroundTint="#EFE9E0"
                 android:text="Answer B"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -111,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:backgroundTint="#CBE8DD"
+                android:backgroundTint="#EFE9E0"
                 android:text="Answer C"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -123,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:backgroundTint="#CBE8DD"
+                android:backgroundTint="#EFE9E0"
                 android:text="Answer D"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -135,14 +138,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/sc2"
                 android:text="Next"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
                 android:gravity="center_vertical"
                 android:layout_gravity="end"
                 android:textSize="18sp"
-                android:paddingHorizontal="40dp" />
+                android:paddingHorizontal="40dp"
+                />
 
         </LinearLayout>
 

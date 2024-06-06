@@ -80,10 +80,10 @@ binding.apply {
     }
     override fun onClick(view:View?){
         binding.apply {
-            btn0.setBackgroundColor(getColor(R.color.gray)) //koga ke se selektira nekoe kopce ke bidi sino, ostanatite ke bidat sivi
-            btn1.setBackgroundColor(getColor(R.color.gray))
-            btn2.setBackgroundColor(getColor(R.color.gray))
-            btn3.setBackgroundColor(getColor(R.color.gray))
+            btn0.setBackgroundColor(getColor(R.color.sc3)) //koga ke se selektira nekoe kopce ke bidi sino, ostanatite ke bidat sivi
+            btn1.setBackgroundColor(getColor(R.color.sc3))
+            btn2.setBackgroundColor(getColor(R.color.sc3))
+            btn3.setBackgroundColor(getColor(R.color.sc3))
         }
 
         val clickBtn=view as Button
@@ -104,7 +104,7 @@ binding.apply {
         }else{
             //opstions btn is clicked
             selectedAnswer=clickBtn.text.toString()
-            clickBtn.setBackgroundColor(getColor(R.color.blue))//bojata na kopcinjata koga se kliknati
+            clickBtn.setBackgroundColor(getColor(R.color.sc2))//bojata na kopcinjata koga se kliknati od ponudennite odgovori
 
         }
 
