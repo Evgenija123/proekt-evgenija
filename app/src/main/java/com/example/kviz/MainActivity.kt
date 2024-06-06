@@ -2,6 +2,7 @@ package com.example.kviz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kviz.databinding.ActivityMainBinding
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getDataFromFirebase()
+
     }
 
     private fun setupRecyclerView() {

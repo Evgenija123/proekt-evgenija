@@ -119,12 +119,12 @@ binding.apply {
             scoreProgressText.text = "$percentage%"
             if (percentage>60){
 
-                scoreTitle.text="Congrats! You have passed"
-                scoreTitle.setTextColor(Color.BLUE)
+                scoreTitle.text="Congrats! You have passed!"
+                scoreTitle.setTextColor(Color.RED)
                 scoreImage.setImageResource(R.drawable.trophy)
 
             } else{
-                scoreTitle.text="Oops! You have failed"
+                scoreTitle.text="Oops! You have failed!"
                 scoreTitle.setTextColor(Color.RED)
                 scoreImage.visibility = View.GONE
             }

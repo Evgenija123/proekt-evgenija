@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">kviz</string>
+    <string name="portratText">Portrait</string>
+    <string name="landscapeText">Landscape</string>
 </resources>
