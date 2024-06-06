@@ -8,46 +8,37 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
-    lateinit var quizModelList: MutableList<QuizModel>
-    lateinit var adapter: QuizListAdapter
-
-
+    private lateinit var binding: ActivityMainBinding
+    private val quizModelList: MutableList<QuizModel> = mutableListOf()
+    private lateinit var adapter: QuizListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        quizModelList= mutableListOf()
         getDataFromFirebase()
     }
-    private fun setupRecyclerView(){
-adapter= QuizListAdapter(quizModelList)
-        binding.recyclerView.layoutManager=LinearLayoutManager(this)
-        binding.recyclerView.adapter=adapter
+
+    private fun setupRecyclerView() {
+        adapter = QuizListAdapter(quizModelList)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
     }
 
     private fun getDataFromFirebase() {
         FirebaseDatabase.getInstance().reference
-            .get() //ja zema listata
+            .get() // Get the data
             .addOnSuccessListener { dataSnapshot ->
-                if (dataSnapshot.exists())
+                if (dataSnapshot.exists()) {
                     for (snapshot in dataSnapshot.children) {
-                        var quizModel = snapshot.getValue(QuizModel::class.java)
-                        if (quizModel !=null) {
-                            quizModelList.add(quizModel)
-
+                        val quizModel = snapshot.getValue(QuizModel::class.java)
+                        quizModel?.let {
+                            quizModelList.add(it)
                         }
-
                     }
-
+                    setupRecyclerView()
+                }
             }
-        setupRecyclerView()
-    }
-
-
-
     }
 }
