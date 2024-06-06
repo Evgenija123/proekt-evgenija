@@ -9,6 +9,8 @@
     tools:context=".QuizActivity"
     android:background="@color/sc">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -83,7 +85,8 @@
                 android:backgroundTint="#EFE9E0"
                 android:textColor="@color/blue"
                 android:gravity="center"
-                android:layout_marginVertical="8dp" />
+                android:layout_marginVertical="8dp"
+                />
 
             <Button
                 android:id="@+id/btn0"
@@ -149,6 +152,7 @@
                 />
 
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
