@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import com.example.kviz.databinding.ActivityQuizBinding
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.kviz.databinding.ScoreDialogBinding
 
@@ -79,7 +80,7 @@ binding.apply {
     }
     override fun onClick(view:View?){
         binding.apply {
-            btn0.setBackgroundColor(getColor(R.color.gray)) //koga ke se selktira nekoe kopce ke bidi sino, ostanatite ke bidat sivi
+            btn0.setBackgroundColor(getColor(R.color.gray)) //koga ke se selektira nekoe kopce ke bidi sino, ostanatite ke bidat sivi
             btn1.setBackgroundColor(getColor(R.color.gray))
             btn2.setBackgroundColor(getColor(R.color.gray))
             btn3.setBackgroundColor(getColor(R.color.gray))
@@ -87,15 +88,19 @@ binding.apply {
 
         val clickBtn=view as Button
         if(clickBtn.id==R.id.next_btn) {
-            //next btn (is clicked)
-            if (selectedAnswer== questionModelList[currentQuestionIndex].correct){
-                score++
+//ako ne e kliknat nitu eden odgovor, a kliknuvame  next,  se pojavuva porakata da odberi odgovor i ne dozvoluva ponatamu se dodeka ne se doberi odgovot
 
-                Log.i("Score of quiz", score.toString())
-
-            }
-            currentQuestionIndex++
-            loadQuestions()
+                //next button is clicked
+                if(selectedAnswer.isEmpty()){
+                    Toast.makeText(applicationContext,"Please select answer to continue",Toast.LENGTH_SHORT).show()
+                    return;
+                }
+                if(selectedAnswer == questionModelList[currentQuestionIndex].correct){
+                    score++
+                    Log.i("Score of quiz",score.toString())
+                }
+                currentQuestionIndex++
+                loadQuestions()
         }else{
             //opstions btn is clicked
             selectedAnswer=clickBtn.text.toString()
