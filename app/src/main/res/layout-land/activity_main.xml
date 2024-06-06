@@ -1,84 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="160dp"
-        android:layout_gravity="center"
-        android:src="@drawable/main_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    android:background="#E6D5D5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="#CBE8DD"
-        android:padding="8dp"
         android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
 
-        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:src="@drawable/main_image"
+            android:layout_gravity="center"/>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quiz App"
-            android:gravity="center"
-            android:textSize="34sp"
-            android:letterSpacing="0.1"
-            android:textStyle="italic"
-            android:textColor="@color/red"
-
-
-            />
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lets play this qwesome quiz app to enhance your knowlage"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:textStyle="italic"
-        android:textColor="@color/red"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="All items"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="4dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/red"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<ProgressBar
-    android:layout_width="20dp"
-    android:layout_height="20dp"
-    android:layout_centerInParent="true"
-    android:visibility="gone"
-    android:id="@+id/progress_bar"/>
-
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:id="@+id/recycler_view"/>
-    </RelativeLayout>
-</LinearLayout>
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="#D5CCDA"
+            android:padding="8dp"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quiz App"
+                android:gravity="center"
+                android:textSize="34sp"
+                android:letterSpacing="0.1"
+                android:textStyle="italic"
+                android:textColor="@color/red" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lets play this awesome quiz app to enhance your knowledge"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_margin="16dp"
+                android:textStyle="italic"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="Small Image"
+                android:src="@drawable/m"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All items"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:id="@+id/progress_bar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:id="@+id/recycler_view"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
