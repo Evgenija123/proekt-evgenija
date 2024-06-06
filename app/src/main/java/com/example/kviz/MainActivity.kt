@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kviz.databinding.ActivityMainBinding
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -27,18 +29,25 @@ adapter= QuizListAdapter(quizModelList)
         binding.recyclerView.adapter=adapter
     }
 
-    private fun getDataFromFirebase(){
-        val listQuestionModel= mutableListOf<QuestionModel>()
-        listQuestionModel.add(QuestionModel("What is android?", mutableListOf("Language","OS","Product","None"),"OS"))
-        listQuestionModel.add(QuestionModel("Prasanje 2", mutableListOf("Language","OS","Product","None"),"OS"))
-        listQuestionModel.add(QuestionModel("Prasanje 3", mutableListOf("Language","OS","Product","None"),"OS"))
+    private fun getDataFromFirebase() {
+        FirebaseDatabase.getInstance().reference
+            .get() //ja zema listata
+            .addOnSuccessListener { dataSnapshot ->
+                if (dataSnapshot.exists())
+                    for (snapshot in dataSnapshot.children) {
+                        var quizModel = snapshot.getValue(QuizModel::class.java)
+                        if (quizModel !=null) {
+                            quizModelList.add(quizModel)
 
+                        }
 
-        quizModelList.add(QuizModel( "1","Sport ","sport 1","10",listQuestionModel))
-        quizModelList.add(QuizModel( "2","Sciene 2","science 2","20"))
-        quizModelList.add(QuizModel( "3","Movies","movies 3","15"))
+                    }
 
+            }
         setupRecyclerView()
+    }
+
+
 
     }
 }
