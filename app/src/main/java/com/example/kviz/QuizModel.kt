@@ -7,7 +7,7 @@ data class QuizModel(
     val time: String,
     val questionList: List<QuestionModel>
 ) {
-    constructor() : this(" ", " ", " ", " ")
+    constructor() : this(" ", " ", " ", " ", emptyList())
 }
 
 data class QuestionModel(

@@ -7,6 +7,9 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
 import com.example.kviz.databinding.ActivityQuizBinding
+import android.util.Log
+
+import kotlin.math.log
 
 class QuizActivity : AppCompatActivity(),View.OnClickListener{
     companion object{
@@ -15,7 +18,13 @@ class QuizActivity : AppCompatActivity(),View.OnClickListener{
     }
 
     lateinit var binding:ActivityQuizBinding
-    var currentQuestionIndex=0
+    var currentQuestionIndex=0;
+    var selectedAnswer=""
+    var score=0;
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityQuizBinding.inflate(layoutInflater)
@@ -46,9 +55,15 @@ class QuizActivity : AppCompatActivity(),View.OnClickListener{
             //finish the quiz
 
         }
-        }
-    }.start()
+        }.start()
+    }
     private fun loadQuestions(){
+selectedAnswer=""
+if(currentQuestionIndex == questionModelList.size) {
+    finishQuiz()   // koga ke sme na poslednoto prasanje ke odi na finishquiz
+    return
+}
+
 binding.apply {
     questionIndicatorTextview.text="Question ${currentQuestionIndex+1}/ ${questionModelList.size}"
     questionProgressIndicator.progress=
@@ -60,14 +75,34 @@ binding.apply {
 }
     }
     override fun onClick(view:View?){
+        binding.apply {
+            btn0.setBackgroundColor(getColor(R.color.gray)) //koga ke se selktira nekoe kopce ke bidi sino, ostanatite ke bidat sivi
+            btn1.setBackgroundColor(getColor(R.color.gray))
+            btn2.setBackgroundColor(getColor(R.color.gray))
+            btn3.setBackgroundColor(getColor(R.color.gray))
+        }
 
         val clickBtn=view as Button
         if(clickBtn.id==R.id.next_btn) {
             //next btn (is clicked)
+            if (selectedAnswer== questionModelList[currentQuestionIndex].correct){
+                score++
+
+                Log.i("Score of quiz", score.toString())
+
+            }
             currentQuestionIndex++
             loadQuestions()
         }else{
             //opstions btn is clicked
+            selectedAnswer=clickBtn.text.toString()
+            clickBtn.setBackgroundColor(getColor(R.color.blue))//bojata na kopcinjata koga se kliknati
+
         }
+
+    }
+    private fun finishQuiz(){
+
+
     }
 }
