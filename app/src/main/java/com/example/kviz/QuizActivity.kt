@@ -1,6 +1,7 @@
 package com.example.kviz
 
 import android.content.IntentSender.OnFinished
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -8,6 +9,8 @@ import android.view.View
 import android.widget.Button
 import com.example.kviz.databinding.ActivityQuizBinding
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
+import com.example.kviz.databinding.ScoreDialogBinding
 
 import kotlin.math.log
 
@@ -102,6 +105,35 @@ binding.apply {
 
     }
     private fun finishQuiz(){
+     val totalQuestions= questionModelList.size
+        val percentage=((score.toFloat()/totalQuestions.toFloat())*100).toInt()
+
+        val dialogBinding=ScoreDialogBinding.inflate(layoutInflater)
+        dialogBinding.apply {
+            scoreProgressIndicator.progress=percentage
+            scoreProgressText.text = "$percentage%"
+            if (percentage>60){
+
+                scoreTitle.text="Congrats! You have passed"
+                scoreTitle.setTextColor(Color.BLUE)
+                scoreImage.setImageResource(R.drawable.trophy)
+
+            } else{
+                scoreTitle.text="Oops! You have failed"
+                scoreTitle.setTextColor(Color.RED)
+                scoreImage.visibility = View.GONE
+            }
+            scoreSubtitle.text="$score out of $totalQuestions are correct"
+            finishBtn.setOnClickListener{
+                finish()
+            }
+
+        }
+
+        AlertDialog.Builder(this)
+            .setView(dialogBinding.root)
+            .setCancelable(false)
+            .show()
 
 
     }

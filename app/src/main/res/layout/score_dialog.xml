@@ -16,7 +16,12 @@
     android:textSize="20sp"
     android:textStyle="bold"
     android:id="@+id/score_title"/>
-
+    <ImageView
+        android:id="@+id/score_image"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@drawable/trophy"
+   />
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -29,7 +34,7 @@
             app:trackColor="@color/gray"
             tools:progress="60"
             app:trackCornerRadius="20dp"
-            app:trackTickness="8dp"
+            app:trackThickness="8dp"
             app:indicatorSize="90dp"
             />
 
