@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private val quizModelList: MutableList<QuizModel> = mutableListOf()
     private lateinit var adapter: QuizListAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
