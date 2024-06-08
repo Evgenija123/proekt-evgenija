@@ -17,7 +17,7 @@ import kotlin.math.log
 
 class QuizActivity : AppCompatActivity(),View.OnClickListener{
     companion object{
-        var questionModelList:List<QuestionModel> = listOf()
+        var questionModelList: List<QuestionModel> = listOf()
         var time:String=""
     }
 
@@ -62,8 +62,8 @@ class QuizActivity : AppCompatActivity(),View.OnClickListener{
         }.start()
     }
     private fun loadQuestions(){
-selectedAnswer=""
-if(currentQuestionIndex == questionModelList.size) {
+    selectedAnswer=""
+    if(currentQuestionIndex == questionModelList.size) {
     finishQuiz()   // koga ke sme na poslednoto prasanje ke odi na finishquiz
     return
 }
@@ -71,7 +71,9 @@ if(currentQuestionIndex == questionModelList.size) {
 binding.apply {
     questionIndicatorTextview.text="Question ${currentQuestionIndex+1}/ ${questionModelList.size}"
     questionProgressIndicator.progress=
-        (currentQuestionIndex.toFloat()/ questionModelList.size.toFloat()*100).toInt()
+        (currentQuestionIndex.toFloat() / questionModelList.size.toFloat()  * 100).toInt()
+    questionTextview.text = questionModelList[currentQuestionIndex].question
+
     btn0.text= questionModelList[currentQuestionIndex].options[0]
     btn1.text= questionModelList[currentQuestionIndex].options[1]
     btn2.text= questionModelList[currentQuestionIndex].options[2]

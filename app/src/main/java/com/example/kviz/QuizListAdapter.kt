@@ -17,7 +17,7 @@ binding.apply {
     root.setOnClickListener{
         val intent = Intent(root.context, QuizActivity::class.java)
 
-        QuizActivity.questionModelList =model.questionList
+        QuizActivity.questionModelList = model.questionList
         QuizActivity.time=model.time
 
 
