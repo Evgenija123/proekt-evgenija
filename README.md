@@ -14,5 +14,11 @@ Landscape
 ![l3](https://github.com/Evgenija123/proekt-evgenija/assets/93289963/8a6fa8a2-a982-4a34-99aa-8ca9e9156b89)
 ![l4](https://github.com/Evgenija123/proekt-evgenija/assets/93289963/a2a2462f-675f-4cbf-8d48-f0b491e5d0b6)
 
+Notifivatios
 
+![analytics](https://github.com/Evgenija123/proekt-evgenija/assets/93289963/313e6202-6639-4a7c-a725-6efcfb6e2aea)
+
+Analytics
+
+![notification](https://github.com/Evgenija123/proekt-evgenija/assets/93289963/30d9cdb5-4775-412d-a5cd-6fbbe50e2a23)
  
